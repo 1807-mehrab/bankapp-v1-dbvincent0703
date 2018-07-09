@@ -37,6 +37,10 @@ public class Bankapp {
         System.out.println(Tom);
         System.out.println(Tom1);
         System.out.println(address3);
+        Tom1.ApplyInterest();
+        System.out.println("After 1 year, Tom Thomson saving account will be $"+Tom1.getCurrency());
+        
+        
     }
     
 }
