@@ -11,17 +11,25 @@ package bankapp;
  */
 public class Customer {
     private String id, firstName,lastName, DOB;
-    public Customer(String id, String firstName, String lastName, String DOB) {
+    private Address address; 
+    private Account account;
+    public Customer(String id, String firstName, String lastName, String DOB, Address address, Account account) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.DOB = DOB;
+        this.address = address;
+        this.account = account;
     }
-
+    @Override 
+    public String toString(){
+        String customer ="ID:"+getId()+ "\tF:"+getFirstName()+" L:"+getLastName()+"\tDOB:"+getDOB();
+        return customer; 
+    }
     public String getId() {
         return id;
     }
-
+    
     public void setId(String id) {
         this.id = id;
     }

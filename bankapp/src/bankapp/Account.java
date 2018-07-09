@@ -11,14 +11,19 @@ package bankapp;
  */
 public class Account {
     private String AccountNumber,date;
-    private double Currency;
+    private double Currency, fees;
 
-    public Account(String AccountNumber, String date, double Currency) {
+    public Account(String AccountNumber, String date, double Currency, double fees) {
         this.AccountNumber = AccountNumber;
         this.date = date;
         this.Currency = Currency;
+        this.fees = fees;
     }
-
+    @Override
+    public String toString(){
+        String account = "Account type: Account\tAccount#: "+getAccountNumber()+"\t"+"Balance: $"+getCurrency() +"\t"+"Monthly fees: $"+getFees();
+        return account;
+    }
     public String getAccountNumber() {
         return AccountNumber;
     }
@@ -42,14 +47,27 @@ public class Account {
     public void setCurrency(double Currency) {
         this.Currency = Currency;
     }
+
+    public double getFees() {
+        return fees;
+    }
+
+    public void setFees(double fees) {
+        this.fees = fees;
+    }
     
-   public void makeDeposit(){
-       
+   public void makeDeposit(double deposit){
+       double d = deposit + getCurrency();
+       setCurrency(d);
+       System.out.println("New Balance = "+ getCurrency());
    }
-   public void makeWithdrawal(){
-       
+   public void makeWithdrawal(double withdrawal){
+       double w = withdrawal+ getCurrency();
+       setCurrency(w);
+       System.out.println("New Balance = "+ getCurrency());
    }
-   public void changeFees(){
-       
+   public void changeFees(double newFees){
+       setFees(newFees);
+       System.out.println("The new fees is $"+getFees());
    }
 }

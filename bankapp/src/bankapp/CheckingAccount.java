@@ -12,10 +12,15 @@ package bankapp;
 public class CheckingAccount extends Account{
     private double OverdraftLimit; 
 
-    public CheckingAccount(String AccountNumber, String date, double Currency) {
-        super(AccountNumber, date, Currency);
+    public CheckingAccount(String AccountNumber, String date, double Currency, double fees, double overdraftLimit) {
+        super(AccountNumber, date, Currency, fees);
+       this. OverdraftLimit = overdraftLimit;
     }
-
+    @Override
+    public String toString(){
+           String account = "Account type: Checking\t Account#: "+getAccountNumber()+"\t"+"Balance: $"+getCurrency() +"\t"+"Monthly fees: $"+getFees() +"\t"+"Overdraft Limit = $"+Double.toString(OverdraftLimit);
+        return account;
+    }
     public double getOverdraftLimit() {
         return OverdraftLimit;
     }

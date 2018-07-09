@@ -17,7 +17,11 @@ public class Address {
         this.zipcode = zipcode;
         this.country = country;
     }
-
+    @Override
+    public String toString(){
+        String address =  getStreet()+", " +getCity()+ " "+getZipcode()+ " "+getCountry();
+        return address;
+    }
     public String getStreet() {
         return street;
     }
